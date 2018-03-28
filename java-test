@@ -1,0 +1,18 @@
+-- 1.
+SELECT
+b.name as ‘Bank’,
+c.number as ‘Card Number’,
+e.date as ‘Expiry Date’
+FROM Bank b
+JOIN Cardnumber c ON c.bankid = b.id
+JOIN Expirydate e ON e.cardid = c.id
+ORDER BY e.date DESC;
+
+-- 2.
+SELECT
+b.name as ‘Bank’,
+CONCAT(SUBSTRING(c.number, 1, 4), ‘-xxxx-xxxx-xxxx’) as ‘Card Number’,
+e.date as ‘Expiry Date’
+FROM Bank b
+JOIN Cardnumber c ON c.bankid = b.id
+JOIN Expirydate e ON e.cardid = c.id;
